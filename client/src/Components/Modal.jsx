@@ -5,8 +5,7 @@ import axios from "axios";
 const Modal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const {setScrapping,scrapping}=useContext(UserContext);
-
+  const {setScrapping,scrapping,summary,setSummary}=useContext(UserContext);
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
@@ -22,8 +21,13 @@ const Modal = () => {
       });
 
       // Handle the response as needed
-      console.log(response.data);
-      setScrapping(response.data);
+      console.log(response?.data?.text?.fullText);
+      setScrapping(response?.data?.text?.fullText);
+
+      // console.log("response2")
+      // console.log(response2)
+      // setSummary(response2?.data);
+
     } catch (error) {
       console.error("Error sending data to the backend", error);
     }

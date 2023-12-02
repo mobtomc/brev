@@ -15,7 +15,6 @@ function create_scrapping(req,res){
         'X-RapidAPI-Host': 'web2meaning.p.rapidapi.com'
       },
       data: {
-        // url: 'https://www.manipalhospitals.com/',
         url: websiteLink,
         params: {
           domain: true,
@@ -95,8 +94,9 @@ function create_scrapping(req,res){
 function create_summary(req,res){
     const encodedParams = new URLSearchParams();
     // Text from create scrapping
-encodedParams.set('text', text.text);
-encodedParams.set('percentage', '70');
+    const { scrapping } = req.body;
+encodedParams.set('text', scrapping);
+encodedParams.set('percentage', '30');
     const options = {
       method: 'POST',
       url: 'https://text-summarize-pro.p.rapidapi.com/summarizeFromText',

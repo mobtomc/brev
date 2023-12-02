@@ -5,7 +5,7 @@ routes.route('/api/scrapping')
     .post(controller.create_scrapping);
 
 routes.route('/api/summary')
-    .get(controller.create_summary);
+    .post(controller.create_summary);
 
 routes.route('/api/sentiment')
     .get(controller.create_sentiment);
