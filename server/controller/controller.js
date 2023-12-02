@@ -123,6 +123,7 @@ encodedParams.set('percentage', '30');
 
 // get_sentiment
 function create_sentiment(req,res){
+  const { summary } = req.body;
     const options = {
         method: 'POST',
         url: 'https://microsoft-text-analytics1.p.rapidapi.com/sentiment',
@@ -136,7 +137,7 @@ function create_sentiment(req,res){
             {
               id: '1',
               language: 'en',
-              text: text.summary.slice(5100)
+              text: summary
             }
           ]
         }

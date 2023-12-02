@@ -8,7 +8,7 @@ routes.route('/api/summary')
     .post(controller.create_summary);
 
 routes.route('/api/sentiment')
-    .get(controller.create_sentiment);
+    .post(controller.create_sentiment);
 
 routes.route('/api/entity')
     .get(controller.create_entities);
