@@ -1,0 +1,40 @@
+.grad1 {
+  overflow: hidden;
+  background-image: radial-gradient(#9303c6, #420294, #000000);
+}
+
+.grad2 {
+  overflow: hidden;
+  background-image: radial-gradient(
+    farthest-corner at 60% 55%,
+    #00c1fc,
+    #0d45ff,
+    #000000
+  );
+}
+
+.gradient-overlay {
+  position: absolute;
+  width: 20%; /* Adjust the size of the gradient quarters as needed */
+  height: 50%;
+}
+
+.gradient-overlay.top-left {
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    to bottom right,
+    #ff7e5f,
+    #feb47b
+  ); /* Adjust gradient colors as needed */
+}
+
+.gradient-overlay.bottom-right {
+    bottom: 0;
+    right: 0;
+  background: linear-gradient(
+    to top left,
+    #ff7e5f,
+    #feb47b
+  ); /* Adjust gradient colors as needed */
+}
