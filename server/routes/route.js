@@ -2,7 +2,7 @@ const routes=require('express').Router();
 const controller=require("../controller/controller")
 
 routes.route('/api/scrapping')
-    .get(controller.create_scrapping);
+    .post(controller.create_scrapping);
 
 routes.route('/api/summary')
     .get(controller.create_summary);

@@ -13,7 +13,8 @@ const Modal = () => {
   const handleClick = async () => {
     try {
       // Send the website link to the backend
-      const response = await axios.post("http://your-backend-", {
+      // const response = await axios.post("http://localhost:8080/api/scrapping", {
+      const response = await axios.post(process.env.REACT_APP_BACKENDURI+"/api/scrapping", {
         websiteLink,
       });
 
@@ -56,7 +57,7 @@ const Modal = () => {
               </button>
               <button
                 onClick={togglePopup}
-                className="mt-6 bg-white hover:bg-black text-black hover:text-white text-white font-bold py-2 px-4 rounded-2xl"
+                className="mt-6 bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded-2xl"
               >
                 Close Popup
               </button>

@@ -3,81 +3,91 @@ const text=require("../demotext")
 
 // get_Scrapping
 function create_scrapping(req,res){
+  try {
+    if (!req.body) return res.status(400).json("Post HTTP Data not Provided");
+    const { websiteLink } = req.body;
     const options = {
-        method: 'POST',
-        url: 'https://web2meaning.p.rapidapi.com/parse/v2',
-        headers: {
-          'content-type': 'application/json',
-          'X-RapidAPI-Key': process.env.XRAPIDKEY,
-          'X-RapidAPI-Host': 'web2meaning.p.rapidapi.com'
-        },
-        data: {
-          url: 'https://www.manipalhospitals.com/',
-          params: {
-            domain: true,
-            html: false,
-            links: false,
-            media: {
-              audios: false,
-              images: true,
-              videos: true
+      method: 'POST',
+      url: 'https://web2meaning.p.rapidapi.com/parse/v2',
+      headers: {
+        'content-type': 'application/json',
+        'X-RapidAPI-Key': process.env.XRAPIDKEY,
+        'X-RapidAPI-Host': 'web2meaning.p.rapidapi.com'
+      },
+      data: {
+        // url: 'https://www.manipalhospitals.com/',
+        url: websiteLink,
+        params: {
+          domain: true,
+          html: false,
+          links: false,
+          media: {
+            audios: false,
+            images: true,
+            videos: true
+          },
+          metadata: {
+            author: true,
+            contentType: true,
+            date: {
+              publishedTime: true,
+              updateTime: true
             },
-            metadata: {
-              author: true,
-              contentType: true,
-              date: {
-                publishedTime: true,
-                updateTime: true
-              },
-              description: true,
-              favicon: true,
-              keywords: true,
-              title: true
-            },
-            nlp: {
-              customCategories: [
-                'business',
-                'entertainment',
-                'other',
-                'politics',
-                'sci.chemistry',
-                'sci.computer_science',
-                'sci.economics',
-                'sci.engineering',
-                'sci.geo_science',
-                'sci.life_sciences',
-                'sci.mathematics',
-                'sci.physics',
-                'sci.social_science',
-                'sports',
-                'technology'
-              ],
-              entities: true,
-              isArticle: true,
-              isCorporative: false,
-              websiteTopic: false
-            },
-            request: {jsRendering: false},
-            text: {
-              body: true,
-              cleanBody: false,
-              fullText: true,
-              includeLinks: false,
-              lang: true
-            }
+            description: true,
+            favicon: true,
+            keywords: true,
+            title: true
+          },
+          nlp: {
+            customCategories: [
+              'business',
+              'entertainment',
+              'other',
+              'politics',
+              'sci.chemistry',
+              'sci.computer_science',
+              'sci.economics',
+              'sci.engineering',
+              'sci.geo_science',
+              'sci.life_sciences',
+              'sci.mathematics',
+              'sci.physics',
+              'sci.social_science',
+              'sports',
+              'technology'
+            ],
+            entities: true,
+            isArticle: true,
+            isCorporative: false,
+            websiteTopic: false
+          },
+          request: {jsRendering: false},
+          text: {
+            body: true,
+            cleanBody: false,
+            fullText: true,
+            includeLinks: false,
+            lang: true
           }
         }
-    };
-    async function fetchData() {
-        try {
-          const response = await axios.request(options);
-          console.log(response?.data)
-          res.json(response?.data)
-        } catch (error) {
-          console.error(error);
-        }
       }
-    fetchData()  
+  };
+  async function fetchData() {
+      try {
+        const response = await axios.request(options);
+        console.log(response?.data)
+        return res.json(response?.data)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  fetchData()  
+
+  } catch (err) {
+    return res.status(400).json({ message:` Error while catching ${err.message} `});
+  }
+    
+
     
 }
 
