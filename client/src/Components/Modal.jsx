@@ -1,11 +1,12 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import UserContext from "../context/UserContext";
 import axios from "axios";
 
 const Modal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const {setScrapping,scrapping,summary,setSummary}=useContext(UserContext);
+  const { setScrapping, scrapping, summary, setSummary } =
+    useContext(UserContext);
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
@@ -16,9 +17,12 @@ const Modal = () => {
     try {
       // Send the website link to the backend
       // const response = await axios.post("http://localhost:8080/api/scrapping", {
-      const response = await axios.post(process.env.REACT_APP_BACKENDURI+"/api/scrapping", {
-        websiteLink,
-      });
+      const response = await axios.post(
+        process.env.REACT_APP_BACKENDURI + "/api/scrapping",
+        {
+          websiteLink,
+        }
+      );
 
       // Handle the response as needed
       console.log(response?.data?.text?.fullText);
@@ -27,15 +31,17 @@ const Modal = () => {
       // console.log("response2")
       // console.log(response2)
       // setSummary(response2?.data);
-
     } catch (error) {
       console.error("Error sending data to the backend", error);
     }
   };
 
   return (
-    <div className="">
-      <button onClick={togglePopup} className="px-4 py-2 border rounded-lg">
+    <div className="z-[5] relative">
+      <button
+        onClick={togglePopup}
+        className="px-4 py-2 rounded-xl text-white hover:text-black bg-black hover:bg-white"
+      >
         Modal
       </button>
       {isOpen && (
@@ -45,24 +51,22 @@ const Modal = () => {
               Enter Site URL
             </h2>
             {/* <input type="text" placeholder="Enter URL" className="text-white h-[40px] border-white w-[60%] bg-[#070708] rounded-full px-4" /> */}
-            <div>
-              <label>
-                Website Link:
-                <input
-                  type="text"
-                  value={websiteLink}
-                  onChange={(e) => setWebsiteLink(e.target.value)}
-                />
-              </label>
-              <button onClick={handleClick}>Send to Backend</button>
-            </div>
+            <input
+              type="text"
+              value={websiteLink}
+              placeholder="Enter URL"
+              onChange={(e) => setWebsiteLink(e.target.value)}
+              className="text-white h-[40px] border-white w-[60%] bg-[#070708] rounded-full px-4"
+            />
+            {/* <button onClick={handleClick}>Send to Backend</button> */}
             <div className="flex gap-4">
-              <button
+              {/* <button
                 onClick={togglePopup}
                 className="mt-6 bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded-2xl"
               >
                 Publish
-              </button>
+              </button> */}
+              <button onClick={handleClick} className="mt-6 bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded-2xl">Send to Backend</button>
               <button
                 onClick={togglePopup}
                 className="mt-6 bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded-2xl"

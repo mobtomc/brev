@@ -14,10 +14,12 @@ export default function Hero() {
                 </div>
             </div>
         </div>
-        <div className='flex flex-col justify-center items-center md:w-[40%]'>
+        <div className='flex flex-col justify-center items-center md:w-[40%] gap-5'>
             <div className="grad2 w-[20%] h-[300px] blur-[60px] absolute flex justify-end items-end"></div>
             <img src={HeroBg} alt="" className='md:w-[60%] relative z-[5]' />
-            <Modal/>
+            <div className='mt-5'>
+              <Modal/>
+            </div>
         </div>
       
     </div>
