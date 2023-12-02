@@ -5,6 +5,7 @@ import Footer from "./Components/Footer.jsx";
 import UserContextProvider from "./context/UserContextProvider.jsx";
 import Summarize from "./Components/Summarize.jsx";
 import Sentiment from "./Components/Sentiment.jsx";
+import OpenAi from "./Components/OpenAi.jsx"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <div className="grad2 w-[20%] h-[300px] blur-[80px] absolute flex justify-end items-end"></div>
           </div>
           <Sentiment/>
+          <OpenAi/>
           <Footer />
         </div>
       </div>
