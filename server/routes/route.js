@@ -14,14 +14,8 @@ routes.route('/api/entity')
     .get(controller.create_entities);
 
 routes.route('/api/competitors')
-    .get(controller.create_competitors);
+    .post(controller.create_competitors);
 
-
-// routes.route('/api/sentiment')
-//     .get(controller.create_sentiment);
-
-routes.route('/api/phrases')
-    .get(controller.create_phrases);
 
 
 

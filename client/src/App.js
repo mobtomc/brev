@@ -6,6 +6,8 @@ import UserContextProvider from "./context/UserContextProvider.jsx";
 import Summarize from "./Components/Summarize.jsx";
 import Sentiment from "./Components/Sentiment.jsx";
 import OpenAi from "./Components/OpenAi.jsx"
+import Marketing from "./Components/Marketing.jsx";
+import Cards from "./Components/Cards.jsx";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           </div>
           <Sentiment/>
           <OpenAi/>
+          <Marketing />
+          <Cards></Cards>
           <Footer />
         </div>
       </div>

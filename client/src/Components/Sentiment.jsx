@@ -3,11 +3,6 @@ import Chart from "chart.js/auto";
 import UserContext from "../context/UserContext";
 import axios from "axios";
 
-// const chartData = {
-//   labels: ["positive", "negative", "neutral"],
-//   data: [{sentiment?.documents[0]?.confidenceScores?.positive}, 17, 10],
-// };
-
 export default function Sentiment() {
   const chartRef = useRef(null);
 

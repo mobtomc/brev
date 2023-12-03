@@ -159,23 +159,27 @@ function create_sentiment(req,res){
 
 // get_Competitors
 function create_competitors(req,res){
-    const options = {
-        method: 'GET',
-        url: 'https://local-business-data.p.rapidapi.com/search',
-        params: {
-          query: 'Hotels in San Francisco, USA',
-          limit: '20',
-          lat: '37.359428',
-          lng: '-121.925337',
-          zoom: '13',
-          language: 'en',
-          region: 'us'
-        },
-        headers: {
-          'X-RapidAPI-Key': process.env.XRAPIDKEY,
-          'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
-        }
-      };
+  const { business,place } = req.body;
+  const options = {
+    method: 'POST',
+    url: 'https://local-business-data.p.rapidapi.com/search',
+    headers: {
+      'content-type': 'application/json',
+      'X-RapidAPI-Key': '4e1c67e8ffmsh81799791e35ab4cp1a6eb0jsn6a039d266265',
+      'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
+    },
+    data: {
+      queries: [
+        `${business} in ${place}`
+      ],
+      limit: 10,
+      region: 'us',
+      language: 'en',
+      coordinates: '38.447030, -101.547385',
+      zoom: 13,
+      dedup: true
+    }
+  };
     async function fetchData() {
         try {
           const response = await axios.request(options);
@@ -229,39 +233,6 @@ function create_entities(req,res){
     
 }
 
-// get_phrases
-function create_phrases(req,res){
-    const options = {
-        method: 'POST',
-        url: 'https://microsoft-text-analytics1.p.rapidapi.com/entities/recognition/general',
-        headers: {
-          'content-type': 'application/json',
-          'X-RapidAPI-Key': process.env.XRAPIDKEY,
-          'X-RapidAPI-Host': 'microsoft-text-analytics1.p.rapidapi.com'
-        },
-        data: {
-          documents: [
-            {
-              id: '1',
-              language: 'en',
-              text:text.summary.slice(5100)
-            }
-          ]
-        }
-      };
-    async function fetchData() {
-        try {
-          const response = await axios.request(options);
-          console.log(response?.data);
-          res.json(response?.data);
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    fetchData()  
-    
-}
-
 
 
 
@@ -269,7 +240,6 @@ module.exports={
     create_scrapping,
     create_summary,
     create_entities,
-    create_phrases,
     create_sentiment,
     create_competitors
 
