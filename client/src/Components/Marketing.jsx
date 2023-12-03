@@ -1,20 +1,17 @@
-import React from 'react'
-import { useState } from 'react'
-// import { Configuration, OpenAIApi,OpenAI } from 'openai'
+import React,{useState} from 'react'
+import { Configuration, OpenAIApi } from 'openai'
 
 export default function Marketing() {
-  const [gptRes, setGptRes] = useState('');
-  const [userInput, setUserInput] = useState('');
-
+  const [transcription, setTranscription] = useState('');
+	const [gptRes, setGptRes] = useState('');
+	const [userInput, setUserInput] = useState('');
 
   // const configuration = new Configuration({
-	// 	apiKey: process.env.REACT_APP_OPEN,
+	// 	apiKey: process.env.REACT_APP_GPT_API_KEY,
 	// });
-
-  
   return (
     <div>
-      hey market
+      
     </div>
   )
 }
