@@ -42,7 +42,7 @@ const Modal = () => {
         onClick={togglePopup}
         className="px-4 py-2 rounded-xl text-white hover:text-black bg-black hover:bg-white"
       >
-        Modal
+        Get Started!
       </button>
       {isOpen && (
         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-70 z-10">

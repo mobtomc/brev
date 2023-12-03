@@ -15,7 +15,7 @@ export default function Hero() {
             </div>
         </div>
         <div className='flex flex-col justify-center items-center md:w-[40%] gap-5'>
-            <div className="grad2 w-[30%] h-[400px] blur-[90px] absolute flex justify-end items-end"></div>
+            <div className="grad2 w-[40%] h-[500px] blur-[190px] absolute flex justify-end items-end"></div>
             <img src={HeroBg} alt="" className='md:w-[60%] relative z-[5]' />
             <div className='mt-5'>
               <Modal/>
