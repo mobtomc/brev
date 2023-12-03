@@ -5,7 +5,7 @@ import Logo from "../assets/images/logo.png"
 function Navbar() {
   const [Toggle, setToggle] = useState(false);
   return (
-    <div className="bg-[#072ccf]">
+    <div className="bg-[#072ccf] relative z-10">
       <div className="max-w-[1240px] flex justify-between items-center">
         <div className="">
             <img src={Logo} alt="" className="w-[50%] sm:w-[80%]" />

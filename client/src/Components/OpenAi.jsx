@@ -26,7 +26,7 @@ export default function OpenAi() {
   return (
     <div className=" w-full flex flex-col justify-center items-center mb-10">
       <div className="w-full flex justify-end">
-        <div className="grad3 w-full h-[400px] blur-[80px] absolute flex justify-end items-end"></div>
+        <div className="grad3 w-full h-[400px] blur-[220px] absolute flex justify-end items-end"></div>
       </div>
       <div className="w-[90%] p-2 box-background">
         <div className="p-5 flex flex-col justify-center">

@@ -14,7 +14,7 @@ export default function Marketing() {
   
   return (
     <div>
-      ji
+      hey market
     </div>
   )
 }

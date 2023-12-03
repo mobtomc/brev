@@ -66,7 +66,7 @@ const Modal = () => {
               >
                 Publish
               </button> */}
-              <button onClick={handleClick} className="mt-6 bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded-2xl">Send to Backend</button>
+              <button onClick={handleClick} className="mt-6 bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded-2xl">Submit!</button>
               <button
                 onClick={togglePopup}
                 className="mt-6 bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded-2xl"
