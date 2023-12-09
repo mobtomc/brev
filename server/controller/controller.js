@@ -102,7 +102,7 @@ encodedParams.set('percentage', '30');
       url: 'https://text-summarize-pro.p.rapidapi.com/summarizeFromText',
       headers: {
         'content-type': 'application/x-www-form-urlencoded',
-        'X-RapidAPI-Key': process.env.XRAPIDKEY,
+        'X-RapidAPI-Key': '4e1c67e8ffmsh81799791e35ab4cp1a6eb0jsn6a039d266265',
         'X-RapidAPI-Host': 'text-summarize-pro.p.rapidapi.com'
       },
       data: encodedParams,
