@@ -38,7 +38,7 @@ const Gpt3Demo = () => {
 
   return (
     <div>
-      <h1 className='text-center text-gradient1 text-5xl font-bold mb-4 mt-12'>AI Generated Strategies for your buissness.</h1>
+      <h1 className='text-center text-gradient1 text-3xl sm:text-5xl font-bold mb-4 mt-12'>AI Generated Strategies for your buissness.</h1>
       {/* <div>
         <label>
           User Input:
@@ -49,11 +49,11 @@ const Gpt3Demo = () => {
         </label>
       </div> */}
       <div className='flex justify-center items-center'>
-        <button className='rounded-xl inline-flex justify-center items-center my-6 px-3 py-2 font-semibold text-center text-white bg-blue-700 hover:bg-blue-800' onClick={handleGenerateText}>Magically Generate the marketing strategy for your Business</button>
+        <button className='rounded-xl inline-flex justify-center items-center w-[80%] sm:w-auto my-6 px-3 py-2 font-semibold text-center text-white bg-blue-700 hover:bg-blue-800 text-sm sm:text-lg' onClick={handleGenerateText}>Magically Generate the marketing strategy for your Business</button>
       </div>
-      <div className='flex flex-col px-20 py-10 gap-3'>
-        <h2 className='text-3xl font-bold'>Generated Text:</h2>
-        <p className='text-justify'>{gptResponse}</p>
+      <div className='flex flex-col py-10 gap-3'>
+        <h2 className='text-3xl font-bold text-center'>Generated Text:</h2>
+        <p className='text-justify px-6'>{gptResponse}</p>
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ export default function Summarize() {
             <h5 className="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Site Summary
             </h5>
-          <p className={`w-[90%] text-justify mb-3 font-normal text-gray-700 dark:text-gray-400 ${isOpen ? "line-clamp-none" : "line-clamp-5"}`}>
+          <p className={`sm:w-[90%] text-[0.75rem] sm:text-base text-justify mb-3 font-normal text-gray-700 dark:text-gray-400 ${isOpen ? "line-clamp-none" : "line-clamp-5"}`}>
             {summary}
           </p>
           <div className="flex justify-center">

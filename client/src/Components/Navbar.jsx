@@ -30,7 +30,7 @@ function Navbar() {
         </ul>
 
         <ul
-          className={`duration-300 md:hidden fixed bg-black/95 h-screen top-[80px] w-full text-white gap-12 ${
+          className={`duration-300 md:hidden fixed bg-black/95 h-screen top-[50px] sm:top-[85px] w-full text-white gap-12 ${
             Toggle ? "left-[0]" : "left-[-100%]"
           }`}
         >

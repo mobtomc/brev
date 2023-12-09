@@ -67,32 +67,32 @@ export default function Sentiment() {
   }, [summary]);
 
   const chartData = {
-    labels: ["positive", "negative", "neutral"],
+    labels: ["Positive", "Negative", "Neutral"],
     data: [sentiment?.documents[0]?.confidenceScores?.positive*100 , sentiment?.documents[0]?.confidenceScores?.negative*100 , sentiment?.documents[0]?.confidenceScores?.neutral*100 ],
   };
 
   return (
-    <div className="px-5 pb-10 relative z-[5] max-w-[1240px]">
+    <div className="px-5 pb-10 relative z-[5]">
       <div className="flex flex-col justify-center gap-4">
-        <h1 className="text-center text-4xl font-bold text-white">
+        <h1 className="text-center text-4xl font-bold text-blue-900 sm:text-white">
           Sentiment Analysis
         </h1>
-        <p className="text-gray-800 font-semibold text-2xl">
+        <p className="text-center text-gray-800 font-semibold sm:text-2xl">
           Overall Sentiment of the website is{" "}
-          <span className="text-[2rem] font-bold">
+          <span className=" text-xl sm:text-[2rem] font-bold">
             {sentiment?.documents[0]?.sentiment}
           </span>
         </p>
-        <div>
-          <div className="font-rubik text-navy">
-            <div className="flex flex-col md:flex-row items-center gap-24 mx-auto w-fit-content shadow-lg rounded-2xl p-8 transition-transform duration-400 ease-in-out hover:scale-102">
-              <div className="chart relative">
-                <canvas id="myChart" className="w-96 h-96"></canvas>
+        <div className="flex justify-center items-center">
+          <div className="font-rubik text-navy sm:w-[80%]">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-5 md:gap-12 mx-auto w-[90%] bg-gray-800 shadow-lg rounded-2xl p-8 transition-transform duration-400 ease-in-out hover:scale-102">
+              <div className="chart relative w-48 sm:w-96 h-48 sm:h-96">
+                <canvas id="myChart" className=""></canvas>
               </div>
-              <div className="details">
+              <div className="details flex justify-center items-center">
                 <ul>
                   {chartData.labels.map((label, i) => (
-                    <li key={label} className="text-uppercase text-base my-3">
+                    <li key={label} className="text-uppercase text-base my-3 text-white">
                       {label}:{" "}
                       <span className="font-bold text-red-600">
                         {chartData.data[i]}%

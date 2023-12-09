@@ -5,12 +5,12 @@ export default function Cards() {
   const { comp, setComp } = useContext(UserContext);
   return (
     <div className="flex flex-col gap-8 justify-center items-center relative z-[5]">
-      <h1 className="text-5xl font-bold text-gradient1 mt-10 mb-4">Your Competitions Surrounding You!</h1>
+      <h1 className="text-center text-3xl sm:text-5xl font-bold text-gradient1 mt-10 mb-4">Your Competitions Surrounding You!</h1>
       <div className="flex flex-wrap justify-center gap-6 mb-10 w-[90%] sm:w-full">
         {comp?.map((item, index) => (
           <div
             key={index}
-            className="max-w-sm flex flex-col gap-3 box-background pb-4"
+            className="max-w-sm flex flex-col gap-3 box-background pb-4 text-[0.75rem] sm:text-base "
           >
             <img
               src={item?.photos_sample[0]?.photo_url}

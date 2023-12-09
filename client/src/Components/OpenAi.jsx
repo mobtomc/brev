@@ -33,24 +33,24 @@ export default function OpenAi() {
           <h5 className="text-center mb-10 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
             Your Business Solutions.
           </h5>
-          <label className="flex flex-col text-white font-semibold text-xl gap-2">
+          <label className="flex flex-col text-white font-semibold sm:text-xl gap-2">
             Enter Your Business:
             <input
               type="text"
               placeholder="Your Business ex:Hospital, TShirt Brand, "
               value={business}
               onChange={(e) => setBusiness(e.target.value)}
-              className="text-white h-[40px] border-white w-[60%] bg-[#070708] rounded-full px-4"
+              className="text-white h-[40px] border-white sm:w-[60%] bg-[#070708] rounded-full px-4"
             />
           </label>
-          <label className="flex flex-col mt-10 text-white font-semibold text-xl gap-2">
+          <label className="flex flex-col mt-10 text-white font-semibold sm:text-xl gap-2">
             Enter Your Place:
             <input
               type="text"
               placeholder="Your location...."
               value={place}
               onChange={(e) => setPlace(e.target.value)}
-              className="text-white h-[40px] border-white w-[60%] bg-[#070708] rounded-full px-4"
+              className="text-white h-[40px] border-white sm:w-[60%] bg-[#070708] rounded-full px-4"
             />
             {console.log(place, business)}
           </label>

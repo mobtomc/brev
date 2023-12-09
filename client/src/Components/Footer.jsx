@@ -14,7 +14,7 @@ const Footer = () => {
               personalised service
             </p>
           </div>
-          <div className="flex w-[60%]">
+          <div className="flex flex-col sm:flex-row sm:w-[60%]">
             <div className="flex-[1] flex flex-col justify-start items-center py-5">
               <img src={logo} alt="content catcher" className="w-[50%]" />
               <p className={` mt-4 max-w-[312px] px-10 text-white`}>
