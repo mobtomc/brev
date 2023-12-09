@@ -7,7 +7,7 @@ const DoughnutChart = () => {
     labels:['Apple', 'Blueberry', 'Kiwi'],
     datasets: [
       {
-        data: [30, 40, 30], // Hardcoded percentages
+        data: [10, 40, 30], // Hardcoded percentages
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
         hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
       },

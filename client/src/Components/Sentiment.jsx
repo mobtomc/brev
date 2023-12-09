@@ -5,6 +5,7 @@ import axios from "axios";
 
 export default function Sentiment() {
   const chartRef = useRef(null);
+  const { summary, setSentiment, sentiment } = useContext(UserContext);
 
   useEffect(() => {
     // Check if a chart instance already exists and destroy it before creating a new one
@@ -21,44 +22,28 @@ export default function Sentiment() {
           {
             label: "Language Popularity",
             data: chartData.data,
+            
           },
         ],
       },
       options: {
-        borderWidth: 10,
-        borderRadius: 2,
-        hoverBorderWidth: 0,
+        borderWidth: 2,
+        borderRadius: 20,
+        hoverBorderWidth: 10,
         plugins: {
           legend: {
-            display: false,
+            display: true,
           },
         },
       },
     });
 
-    // positionImage(chartRef.current);
-
-    // window.addEventListener("resize", () => {
-    //   positionImage(chartRef.current);
-    // });
-
     return () => {
-      // Cleanup: Remove event listener and destroy the chart when the component is unmounted
-      // window.removeEventListener("resize", () => {
-      //   positionImage(chartRef.current);
-      // });
       chartRef.current.destroy();
     };
-  }, []); // Empty dependency array ensures that this effect runs only once
+  }, [sentiment]); 
 
-  // const positionImage = (chart) => {
-  //   const img = document.getElementById("userImg");
-  //   img.style.display = "block";
-  //   img.style.top = `${chart.height + 400 / 2 - img.offsetHeight / 2}px`;
-  //   img.style.left = `${chart.width / 2 - img.offsetWidth / 2.3}px`;
-  // };
 
-  const { summary, setSentiment, sentiment } = useContext(UserContext);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -85,16 +70,9 @@ export default function Sentiment() {
     labels: ["positive", "negative", "neutral"],
     data: [sentiment?.documents[0]?.confidenceScores?.positive*100 , sentiment?.documents[0]?.confidenceScores?.negative*100 , sentiment?.documents[0]?.confidenceScores?.neutral*100 ],
   };
-  return (
-    <div className="px-5 pb-10 relative z-[5]">
-      {/* <DoughnutChart /> */}
-      {console.log("sentiment")}
-      {/* GIves sentiment overall */}
-      {console.log(sentiment?.documents[0]?.sentiment)}
 
-      {console.log(sentiment?.documents[0]?.confidenceScores?.positive)}
-      {console.log(sentiment?.documents[0]?.confidenceScores?.negative)}
-      {console.log(sentiment?.documents[0]?.confidenceScores?.neutral)}
+  return (
+    <div className="px-5 pb-10 relative z-[5] max-w-[1240px]">
       <div className="flex flex-col justify-center gap-4">
         <h1 className="text-center text-4xl font-bold text-white">
           Sentiment Analysis
@@ -110,12 +88,6 @@ export default function Sentiment() {
             <div className="flex flex-col md:flex-row items-center gap-24 mx-auto w-fit-content shadow-lg rounded-2xl p-8 transition-transform duration-400 ease-in-out hover:scale-102">
               <div className="chart relative">
                 <canvas id="myChart" className="w-96 h-96"></canvas>
-                {/* <img
-                  id="userImg"
-                  src="https://i.postimg.cc/rFNJQfgt/employee.png"
-                  className="title"
-                  alt="User"
-                /> */}
               </div>
               <div className="details">
                 <ul>
@@ -133,8 +105,6 @@ export default function Sentiment() {
           </div>
         </div>
       </div>
-
-      {/* <h1>{sentiment?.documents[0]?.sentiment}</h1> */}
     </div>
   );
 }
